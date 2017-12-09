@@ -30,8 +30,7 @@ Requirements and Materials
 This is where you talk about what sort of libraries are required and what sort of hardware is needed:
 
 Dependencies:
-* energia-1.6.10E18 https://www.energia.nu
-* msp430 command-line flasher https://www.ti.com/tool/msp430-flasher
+* Servo.h https://www.arduino.cc/en/Reference/Servo
 * important libraries that need to be installed
 
 Bill of Materials:
