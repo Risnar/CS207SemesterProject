@@ -73,3 +73,4 @@ Credits
 I would like to give credit to:
 
 * Bernard Katz Glass - He gave me the idea and the model described on the website www.instructables.com
+* Julián Rodales - For his support in building the robot.
