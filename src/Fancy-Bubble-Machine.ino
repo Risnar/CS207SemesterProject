@@ -19,15 +19,18 @@ byte pos = 0; // variable to store starting servo position
 const int redPin = 2;
 const int greenPin = 3;
 const int bluePin = 4;
+const int laser = 12;
 float hue = 0, s = 1, v = 1;
 float r,g,b;
 
 
 void setup() {
-  // Set up RGB LED pins
+  // Set up LED pins
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
+  pinMode(laser, OUTPUT);
+
   
   pinMode(motorPin, OUTPUT); // Set up DC motor pin
 
@@ -39,22 +42,21 @@ void loop() {
   
   changeLedColor();
   
-  for(pos = 0; pos < 90; pos += 1) { //servo moves 0 degrees to 90 degrees in steps of 1 degree
+  for(pos = 0; pos < 95; pos += 1) { //servo moves from 0 degrees to 95 degrees in steps of 1 degree
     tiltServo.write(pos); // tell servo to go to position in variable 'pos'
     delay(15); 
   }
   
   changeLedColor();
 
-  for(pos = 90; pos >= 1; pos -= 1) { // tilt servo raises and levels off
-    
+  for(pos = 95; pos >= 1; pos -= 1) { // tilt servo raises and levels off
     tiltServo.write(pos);
     delay(15);
   }
 
   changeLedColor();
 
-  for(pos = 0; pos < 90; pos += 1) { //servo moves 0 degrees to 180 degrees in steps of 1 degree
+  for(pos = 0; pos < 90; pos += 1) { //servo moves 0 degrees to 90 degrees in steps of 1 degree
     panServo.write(pos); // tell servo to go to position in variable 'pos'
     delay(15); 
   }
@@ -63,7 +65,7 @@ void loop() {
   motorOnThenOff();
 
   
-  for(pos = 90; pos >=1; pos -= 1) { // pan servo swings wand around towards fan
+  for(pos = 90; pos >=1; pos -= 1) { // pan servo swings wand around
     panServo.write(pos);
     delay(15);
   }
@@ -73,16 +75,16 @@ void loop() {
 }
 
 /*
- * motorOnThenOff() - turns motor on for 3 seconds and then off.
+ * motorOnThenOff() - turns motor on for 2 seconds and then off.
  */
 void motorOnThenOff(){
-  const int onTime = 3000; //the number of milliseconds for the motor to turn on for
-  const int offTime = 500; //the number of milliseconds for the motor to turn off for
 
+  digitalWrite(laser, HIGH);   // turn the laser on (HIGH is the voltage level)
   digitalWrite(motorPin, HIGH); // turns the motor On
-  delay(onTime); // waits for onTime milliseconds
+  delay(2000); // waits for 2 seconds
   digitalWrite(motorPin, LOW); // turns the motor Off
-  delay(offTime); // waits for offTime milliseconds
+  digitalWrite(laser, LOW);    // turn the laser off by making the voltage LOW
+  delay(500); // waits for 0.5 second
 }
 
 void changeLedColor(){
@@ -96,9 +98,9 @@ void changeLedColor(){
   hsv2rgb(hue,s,v,r,g,b);
   
   //write the color to the RGB LED
-  digitalWrite(redPin, r);
-  digitalWrite(greenPin, g);
-  digitalWrite(bluePin, b);    
+  analogWrite(redPin, r);
+  analogWrite(greenPin, g);
+  analogWrite(bluePin, b);    
 }
 
 /* function: hsv2rb
