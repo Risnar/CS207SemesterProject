@@ -10,7 +10,7 @@ a ring in soapy water. Afterwards, it turns around and a fan gets activated to b
 
 ![alt text][pic1]
 
-[pic1]: https://github.com/Risnar/CS207SemesterProject/tree/master/img/exampleEndProduct.jpg "Example Image"
+[pic1]: https://github.com/Risnar/CS207SemesterProject/blob/master/img/FancyBubbleBot.jpg "Fancy Bubble Bot"
 
 Repository Contents
 ============
