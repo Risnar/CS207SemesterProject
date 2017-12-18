@@ -43,7 +43,7 @@ Bill of Materials:
 * 2x metal angles
 * 1x plastic plate
 * Nuts and bolts of various sizes
-* Sticky pads
+* Poster putty
 * Aluminum foil
 * Cup/Bowl
 * Duck Tape
@@ -63,13 +63,13 @@ To build the Fancy Bubble Machine, you have to realize the following schematic o
 
 The multicolor LED needs three 560Ω resistors, for each color one before being connected to the Arduino digital pins 2 (red), 3 (green) and 4 (blue). Don't forget to connect it also to ground.
 
-I used two servos to build the movable arm. Turn the lower(panServo) one 180 degrees, and the upper(tiltServo) one 90 degrees, then stick them together with sticky pad. With duck tape I added the ring for the bubbles to the tiltServo. It should be in a 45 degree angle up. Due to the fact, that the wires are too short, I used jumper wires and connected them with a self-built aluminum /duck tape adapter to the servos. The three wires from each Servo have to be connected on the breadboard with 5V, Ground, digital pin 8 (panServo) and digital pin 9 (tiltServo).
+I used two servos to build the movable arm. Turn the lower(panServo) one 180 degrees, and the upper(tiltServo) one 90 degrees, then stick them together with poster putty. With duck tape I added the ring for the bubbles to the tiltServo. It should be in a 45 degree angle up. Due to the fact, that the wires are too short, I used jumper wires and connected them with a self-built aluminum /duck tape adapter to the servos. The three wires from each Servo have to be connected on the breadboard with 5V, Ground, digital pin 8 (panServo) and digital pin 9 (tiltServo).
 
 The DC-Motor moves because of magnetism. Electromagnets can generate power. When you turn off an inductor it turns its magnetic field back into electricity flowing in the same direction as the previous current. This happens very quickly and the voltage can be very high - up to 10 times of the source voltage. This is the reason why I added a Diode to protect the other parts in my circuit. To ensure, that the motor gets enough power, an NPN transistor has been added. NPN stands for negative positive negative which is their internal silicone structure. A small amount of current applied to the base can allow very large amounts of current to flow from the emitter to the collector. The whole motor-circle is following: Connect digital pin 13 with a 2.2kΩ resistor to the transistor. The transistor is connected to ground on one side and to the motor and the diode on the other side. The opposite wire of the motor and the diode are connected to 5V.
 
 The laser pointer works similar to a led. You need a 560Ω resistor, connect one side to ground and the other to the digital pin 12.
 
-My playground is a plastic cake box. Screw the metal angles together and then onto the cake box. On top of the smaller angle I attached the motor with sticky pad. My propeller is made out of duck tape, but I am sure that you can find better solutions. Above the motor I glued the laser. Make sure that it points in the right direction to illuminate the bubbles. The last step is to stick the moveable arm onto the box. I also did this with sticky pad. Check that the servos can move without touching anything but are still close enough, that the motor can create bubbles. On the side of the cake box I made a whole for all wires. With this set up the Arduino and the electronic parts are protected from the bubble soap.
+My playground is a plastic cake box. Screw the metal angles together and then onto the cake box. On top of the smaller angle I attached the motor with poster putty. My propeller is made out of duck tape, but I am sure that you can find better solutions. Above the motor I glued the laser. Make sure that it points in the right direction to illuminate the bubbles. The last step is to stick the moveable arm onto the box. I also did this with poster putty. Check that the servos can move without touching anything but are still close enough, that the motor can create bubbles. On the side of the cake box I made a whole for all wires. With this set up the Arduino and the electronic parts are protected from the bubble soap.
 
 
 Usage
