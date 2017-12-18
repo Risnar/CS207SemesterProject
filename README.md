@@ -14,8 +14,6 @@ a ring in soapy water. Afterwards, it turns around and a fan gets activated to b
 
 Repository Contents
 ============
-Here's where you'll provide a map of all the top-level contents (where applicable):
-
 * **/documentation** - In this folder you will find all the documentation I handed in during this project.
 * **/src** - In this folder is the source code for the bubble machine.
 * **/hardware** - Here are all models and schematics.
@@ -26,47 +24,60 @@ Here's where you'll provide a map of all the top-level contents (where applicabl
 
 Requirements and Materials
 ============
-
-This is where you talk about what sort of libraries are required and what sort of hardware is needed:
-
 Dependencies:
 * Servo.h https://www.arduino.cc/en/Reference/Servo
-* important libraries that need to be installed
 
 Bill of Materials:
 * 1x Arduino Uno
-* 1x Motor shield
+* 1x DC Motor
 * 2x Micro servos
-* 1x DC toy motor
-* 1x Bubble-Mix
-* 1x roll of perforated metal tape
-* 1x plastic plate
-* 1x Stripe of LED
+* 1x Stripe of LED / Multidimensional LED
 * 1x Laser pointer
+* 1x Diode
+* 1x Transistor
+* 4x 560Ω resistors
+* 1x 2.2kΩ resistor
+* Jumping wires
+
+* 1x Bubble-Mix
+* 2x metal angles
+* 1x plastic plate
 * Nuts and bolts of various sizes
-* aluminum channel
-* 1 threaded rod hanger/ plate
-* museum wax
-* 5 minute epoxy
-* acrylic sheet- about 6" x 6" worth
-* acrylic adhesive
+* Sticky pads
+* Aluminum foil
+* Cup/Bowl
+* Duck Tape
 
 Build Instructions
 ==================
 
-Here is where you give specific instructions about how the device is built. The more detail the better -- especially if your build is very complicated. Here you should include schematics of your build.
+To build the Fancy Bubble Machine, you have to realize the following schematic on your Arduino:
 
-If there are any special instructions on how to assemble the hardware, we should note it here as well. For example, if the user should solder things in a specific order, you should give them a heads-up.
+![alt text][pic2]
+
+[pic2]: https://github.com/Risnar/CS207SemesterProject/blob/master/hardware/circuit.jpg "Arduino Circuit"
+
+![alt text][pic3]
+
+[pic3]: https://github.com/Risnar/CS207SemesterProject/blob/master/hardware/schematic.jpg "Arduino Schematic"
+
+The multicolor LED needs three 560Ω resistors, for each color one before being connected to the Arduino digital pins 2 (red), 3 (green) and 4 (blue). Don't forget to connect it also to ground.
+
+I used two servos to build the movable arm. Turn the lower(panServo) one 180 degrees, and the upper(tiltServo) one 90 degrees, then stick them together with sticky pad. With duck tape I added the ring for the bubbles to the tiltServo. It should be in a 45 degree angle up. Due to the fact, that the wires are too short, I used jumper wires and connected them with a self-built aluminum /duck tape adapter to the servos. The three wires from each Servo have to be connected on the breadboard with 5V, Ground, digital pin 8 (panServo) and digital pin 9 (tiltServo).
+
+The DC-Motor moves because of magnetism. Electromagnets can generate power. When you turn off an inductor it turns its magnetic field back into electricity flowing in the same direction as the previous current. This happens very quickly and the voltage can be very high - up to 10 times of the source voltage. This is the reason why I added a Diode to protect the other parts in my circuit. To ensure, that the motor gets enough power, an NPN transistor has been added. NPN stands for negative positive negative which is their internal silicone structure. A small amount of current applied to the base can allow very large amounts of current to flow from the emitter to the collector. The whole motor-circle is following: Connect digital pin 13 with a 2.2kΩ resistor to the transistor. The transistor is connected to ground on one side and to the motor and the diode on the other side. The opposite wire of the motor and the diode are connected to 5V.
+
+The laser pointer works similar to a led. You need a 560Ω resistor, connect one side to ground and the other to the digital pin 12.
+
+My playground is a plastic cake box. Screw the metal angles together and then onto the cake box. On top of the smaller angle I attached the motor with sticky pad. My propeller is made out of duck tape, but I am sure that you can find better solutions. Above the motor I glued the laser. Make sure that it points in the right direction to illuminate the bubbles. The last step is to stick the moveable arm onto the box. I also did this with sticky pad. Check that the servos can move without touching anything but are still close enough, that the motor can create bubbles. On the side of the cake box I made a whole for all wires. With this set up the Arduino and the electronic parts are protected from the bubble soap.
 
 
 Usage
 =====
-This is usually where you tell the user how the device works. Do you just upload the software and flip a switch? What sort of things does this thing do? Are there alternate settings / modes / programs that might be good to mention. This is where you tell the user exactly how the device or program is used. For example:
-
-* Upload the code to the thing.
-* Turn the thing on.
-* The thing will do a thing and it'll be really cool.
-* Don't forget to feed the badgers!
+* Upload the code to the Arduino.
+* Fill bubble soap into the bowl
+* Connect the Arduino to a power supply, either USB or with an AC-DC adapter
+* Enjoy the automatic produced bubbles.
 
 Credits
 =======
