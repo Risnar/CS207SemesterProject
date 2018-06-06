@@ -1,4 +1,4 @@
-#Fancy Bubble Machine
+# Fancy Bubble Machine
 
 This repository is for a semester project of the CS 207 – Building Interactive Gadgets
 Course. The aim of the project is to build a 3D Spherical Atmosphere Encapsulated Phosphorous
